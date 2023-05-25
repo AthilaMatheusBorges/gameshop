@@ -19,6 +19,7 @@ export default function Card(props) {
         category={props.category}
         listCard={props.listCard}
         setListCard={props.setListCard}
+        id={props.id}
       />
       <div className="card--container" onClick={() => handleClickCard()}>
         <h1 className="card--title">{props.name}</h1>

@@ -70,7 +70,7 @@ function App() {
               key={value.id}
               listCard={listGames}
               setListCard={setListGames}
-              id={value.id}
+              id={value.idgames}
               name={value.name}
               cost={value.cost}
               category={value.category}

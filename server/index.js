@@ -34,6 +34,30 @@ app.get("/getCards", (req, res) => {
   })
 })
 
+app.put("/edit", (req, res) => {
+  const {id} = req.body;
+  const {name} = req.body;
+  const {cost} = req.body;
+  const {category} = req.body;
+
+  let SQL = "UPDATE games SET name=?, cost=?, category=? WHERE idgames=?";
+
+  db.query(SQL, [name, cost, category, id], (err, result) => {
+    if(err) console.log(err)
+    else res.send(result)
+  })
+})
+
+app.delete("/delete/:id", (req, res) => {
+  const {id} = req.params;
+
+  let SQL = "DELETE FROM games WHERE idgames = ?"
+
+  db.query(SQL, [id],(err, result) => {
+    if(err) console.log(err)
+    else res.send(result)
+  })
+})
 
 app.listen(3001, () => {
   console.log("server ativo")
